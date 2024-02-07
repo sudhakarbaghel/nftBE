@@ -22,7 +22,10 @@ const cors_1 = __importDefault(require("cors"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const port = process.env.PORT;
-app.use((0, cors_1.default)());
+const corsOptions = {
+    origin: 'https://nftworld-iota.vercel.app/',
+};
+app.use((0, cors_1.default)(corsOptions));
 const mongoURI = process.env.MONGO_URI;
 function connectToDatabase() {
     return __awaiter(this, void 0, void 0, function* () {
